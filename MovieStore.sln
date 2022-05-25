@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.Entities", "MovieStore.Entities\MovieStore.Entities.csproj", "{401EC98B-43BD-4EF6-B1C5-9A0E1E7076EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.DataAccess", "MovieStore.DataAccess\MovieStore.DataAccess.csproj", "{790FC90B-1C01-4D5F-9DB6-BEB321462AE5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{401EC98B-43BD-4EF6-B1C5-9A0E1E7076EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{401EC98B-43BD-4EF6-B1C5-9A0E1E7076EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{401EC98B-43BD-4EF6-B1C5-9A0E1E7076EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{790FC90B-1C01-4D5F-9DB6-BEB321462AE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{790FC90B-1C01-4D5F-9DB6-BEB321462AE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{790FC90B-1C01-4D5F-9DB6-BEB321462AE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{790FC90B-1C01-4D5F-9DB6-BEB321462AE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
