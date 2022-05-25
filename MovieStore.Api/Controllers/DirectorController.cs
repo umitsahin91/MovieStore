@@ -15,13 +15,13 @@ namespace MovieStore.Api.Controllers
             _service = service;
         }
         [HttpGet]
-        public async Task<IActionResult> GetMovies()
+        public async Task<IActionResult> GetDirectors()
         {
             var result = await _service.GetAllAsync();
             return Ok(result);
         }
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetMovieById(int id)
+        public async Task<IActionResult> GetDirectorById(int id)
         {
             var director = await _service.GetByIdAsync(id);
             return Ok(director);

@@ -1,5 +1,7 @@
-﻿using MovieStore.Business.Abstract;
+﻿using AutoMapper;
+using MovieStore.Business.Abstract;
 using MovieStore.DataAccess.Repositories.Abstract;
+using MovieStore.DTO.Response.Genre;
 using MovieStore.Entities;
 using System;
 using System.Collections.Generic;
@@ -12,20 +14,24 @@ namespace MovieStore.Business.Concrete
     public class GenreService : IGenreService
     {
         private readonly IGenreRepository _repository;
+        private readonly IMapper _mapper;
 
-        public GenreService(IGenreRepository repository)
+        public GenreService(IGenreRepository repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
-        public async Task<List<Genre>> GetAllAsync()
+        public async Task<List<GetGenresDto>> GetAllAsync()
         {
-            return await _repository.GetAllAsync();
+            var genreList= await _repository.GetAllAsync();
+            return _mapper.Map<List<GetGenresDto>>(genreList);
         }
 
-        public async Task<Genre> GetByIdAsync(int id)
+        public async Task<GetGenreByIdDto> GetByIdAsync(int id)
         {
-           return await _repository.GetByIdAsync(id);
+           var genre= await _repository.GetByIdAsync(id);
+            return _mapper.Map<GetGenreByIdDto>(genre);
         }
     }
 }

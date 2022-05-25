@@ -1,30 +1,30 @@
-﻿using MovieStore.Business.Abstract;
+﻿using AutoMapper;
+using MovieStore.Business.Abstract;
 using MovieStore.DataAccess.Repositories.Abstract;
-using MovieStore.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MovieStore.DTO.Response.Movie;
 
-namespace MovieStore.Business.Concrete
+namespace MovieStore.Business.Concrete;
+
+public class MovieService : IMovieService
 {
-    public class MovieService : IMovieService
+    private readonly IMovieRepository _repository;
+    private readonly IMapper _mapper;
+    public MovieService(IMovieRepository repository, IMapper mapper)
     {
-        private readonly IMovieRepository _repository;
-        public MovieService(IMovieRepository repository)
-        {
-            _repository = repository;
-        }
+        _repository = repository;
+        _mapper = mapper;
+    }
 
-        public async Task<List<Movie>> GetAllAsync()
-        {
-           return await _repository.GetAllAsync();
-        }
+    public async Task<List<GetMoviesDto>> GetAllAsync()
+    {
+        var movieList = await _repository.GetAllAsync();
+        return _mapper.Map<List<GetMoviesDto>>(movieList);
 
-        public async Task<Movie> GetByIdAsync(int id)
-        {
-            return await _repository.GetByIdAsync(id);
-        }
+    }
+
+    public async Task<GetMovieByIdDto> GetByIdAsync(int id)
+    {
+        var movie= await _repository.GetByIdAsync(id);
+        return _mapper.Map<GetMovieByIdDto>(movie);
     }
 }

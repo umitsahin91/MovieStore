@@ -1,15 +1,9 @@
-﻿using MovieStore.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MovieStore.DTO.Response.Genre;
 
-namespace MovieStore.Business.Abstract
+namespace MovieStore.Business.Abstract;
+
+public interface IGenreService
 {
-    public interface IGenreService
-    {
-        Task<Genre> GetByIdAsync(int id);
-        Task<List<Genre>> GetAllAsync();
-    }
+    Task<GetGenreByIdDto> GetByIdAsync(int id);
+    Task<List<GetGenresDto>> GetAllAsync();
 }

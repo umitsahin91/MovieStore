@@ -12,6 +12,8 @@ public class MovieMap : IEntityTypeConfiguration<Movie>
         builder.Property(m => m.ReleaseDate)
             .HasColumnType("date");
 
+ 
+
 
         builder.HasData(
             new Movie { Id=1,MovieName="Wanted",ReleaseDate=DateTime.Now,GenreId=1,DirectorId=1 },

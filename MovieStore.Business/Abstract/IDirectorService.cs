@@ -1,4 +1,5 @@
-﻿using MovieStore.Entities;
+﻿using MovieStore.DTO.Response.Director;
+using MovieStore.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace MovieStore.Business.Abstract
 {
     public interface IDirectorService
     {
-        Task<Director> GetByIdAsync(int id);
-        Task<List<Director>> GetAllAsync();
+        Task<GetDirectorByIdDto> GetByIdAsync(int id);
+        Task<List<GetDirectorsDto>> GetAllAsync();
     }
 }

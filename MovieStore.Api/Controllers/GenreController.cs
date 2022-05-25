@@ -16,13 +16,13 @@ namespace MovieStore.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetMovies()
+        public async Task<IActionResult> GetGenre()
         {
             var result = await _service.GetAllAsync();
             return Ok(result);
         }
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetMovieById(int id)
+        public async Task<IActionResult> GetGenreById(int id)
         {
             var genre = await _service.GetByIdAsync(id);
             return Ok(genre);

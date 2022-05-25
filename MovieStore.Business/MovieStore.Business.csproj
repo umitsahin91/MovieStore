@@ -8,7 +8,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MovieStore.DataAccess\MovieStore.DataAccess.csproj" />
+    <ProjectReference Include="..\MovieStore.DTO\MovieStore.DTO.csproj" />
     <ProjectReference Include="..\MovieStore.Entities\MovieStore.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
   </ItemGroup>
 
 </Project>

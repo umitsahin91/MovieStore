@@ -1,5 +1,7 @@
-﻿using MovieStore.Business.Abstract;
+﻿using AutoMapper;
+using MovieStore.Business.Abstract;
 using MovieStore.DataAccess.Repositories.Abstract;
+using MovieStore.DTO.Response.Director;
 using MovieStore.Entities;
 using System;
 using System.Collections.Generic;
@@ -12,19 +14,23 @@ namespace MovieStore.Business.Concrete;
 public class DirectorService : IDirectorService
 {
     private readonly IDirectorRepository _repository;
+    private readonly IMapper _mapper;
 
-    public DirectorService(IDirectorRepository repository)
+    public DirectorService(IDirectorRepository repository, IMapper mapper)
     {
         _repository = repository;
+        _mapper = mapper;
     }
 
-    public async Task<List<Director>> GetAllAsync()
+    public async Task<List<GetDirectorsDto>> GetAllAsync()
     {
-       return await _repository.GetAllAsync();
+       var directorList= await _repository.GetAllAsync();
+       return _mapper.Map<List<GetDirectorsDto>>(directorList);
     }
 
-    public async Task<Director> GetByIdAsync(int id)
+    public async Task<GetDirectorByIdDto> GetByIdAsync(int id)
     {
-        return await _repository.GetByIdAsync(id);
+        var director= await _repository.GetByIdAsync(id);
+        return _mapper.Map<GetDirectorByIdDto>(director);
     }
 }
